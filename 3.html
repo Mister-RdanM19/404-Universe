@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Alien Abduction | Mr.Rm19</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            background-color: #050505;
+            color: white;
+            font-family: 'Courier New', Courier, monospace;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        /* UFO & Beam Container */
+        .ufo-container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: -50px;
+        }
+
+        .ufo {
+            font-size: 80px;
+            z-index: 10;
+            animation: ufoFloat 4s ease-in-out infinite;
+        }
+
+        .beam {
+            width: 150px;
+            height: 300px;
+            background: linear-gradient(to bottom, rgba(0, 255, 0, 0.4), transparent);
+            clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+            margin-top: -20px;
+            opacity: 0;
+            animation: beamFlicker 3s infinite;
+        }
+
+        /* 404 Text Styling */
+        .error-text {
+            display: flex;
+            font-size: 100px;
+            font-weight: bold;
+            z-index: 5;
+            color: #0f0;
+            text-shadow: 0 0 10px #0f0;
+        }
+
+        .abducted {
+            animation: abduct 3s infinite;
+        }
+
+        .content {
+            text-align: center;
+            z-index: 10;
+        }
+
+        h2 {
+            margin-top: 20px;
+            letter-spacing: 3px;
+            font-size: 1.2rem;
+        }
+
+        .btn-rescue {
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: 1px solid #0f0;
+            color: #0f0;
+            text-decoration: none;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .btn-rescue:hover {
+            background: #0f0;
+            color: #000;
+            box-shadow: 0 0 15px #0f0;
+        }
+
+        /* Animations */
+        @keyframes ufoFloat {
+            0%, 100% { transform: translateY(0) translateX(0); }
+            50% { transform: translateY(-20px) translateX(10px); }
+        }
+
+        @keyframes beamFlicker {
+            0%, 100% { opacity: 0; }
+            40%, 60% { opacity: 1; }
+        }
+
+        @keyframes abduct {
+            0%, 40% { transform: translateY(0) scale(1); opacity: 1; }
+            60% { transform: translateY(-150px) scale(0.5); opacity: 0.5; }
+            80%, 100% { transform: translateY(-200px) scale(0); opacity: 0; }
+        }
+
+        /* Credit Footer */
+        .credit-footer {
+            position: absolute;
+            bottom: 20px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: rgba(0, 255, 0, 0.3);
+        }
+
+        .credit-footer span {
+            color: #0f0;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ufo-container">
+        <div class="ufo">🛸</div>
+        <div class="beam"></div>
+    </div>
+
+    <div class="error-text">
+        <span>4</span>
+        <span class="abducted">0</span>
+        <span>4</span>
+    </div>
+
+    <div class="content">
+        <h2>THEY TOOK THE PAGE!</h2>
+        <p style="color: #666;">Halaman ini diculik ke galaksi lain.</p>
+        <a href="#" class="btn-rescue">Kirim Sinyal Penyelamatan</a>
+    </div>
+
+    <div class="credit-footer">
+        Project by <span>Mr.Rm19</span> — ramdan19id@gmail.com
+    </div>
+
+</body>
+</html>

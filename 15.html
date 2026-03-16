@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Dark Mode Toggle | Mr.Rm19</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            transition: background 0.5s ease;
+            font-family: 'Segoe UI', sans-serif;
+            overflow: hidden;
+        }
+
+        /* Mode Gelap (Default) */
+        body.dark {
+            background-color: #000;
+            color: #111; /* Teks hampir tidak terlihat */
+        }
+
+        /* Mode Terang */
+        body.light {
+            background-color: #fff;
+            color: #333;
+        }
+
+        .container {
+            text-align: center;
+            z-index: 2;
+        }
+
+        h1 {
+            font-size: 150px;
+            margin: 0;
+            font-weight: 900;
+            transition: color 0.5s ease;
+        }
+
+        p {
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+        }
+
+        /* Switch Styling */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+            margin-bottom: 20px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #333;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #ffcc00; /* Warna lampu nyala */
+            box-shadow: 0 0 15px #ffcc00;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        .hint {
+            font-size: 0.8rem;
+            margin-top: 10px;
+            color: #444;
+        }
+
+        .btn-home {
+            margin-top: 30px;
+            padding: 10px 25px;
+            border: 2px solid currentColor;
+            color: inherit;
+            text-decoration: none;
+            font-weight: bold;
+            display: none; /* Muncul saat lampu nyala */
+        }
+
+        /* Credit Footer */
+        .credit-footer {
+            position: absolute;
+            bottom: 20px;
+            font-size: 0.85rem;
+            color: #555;
+        }
+
+        .credit-footer span {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="dark" id="mainBody">
+
+    <div class="container">
+        <label class="switch">
+            <input type="checkbox" id="lightToggle">
+            <span class="slider"></span>
+        </label>
+        <div id="hintText" class="hint">Gelap sekali di sini... Nyalakan lampu?</div>
+        
+        <div id="content" style="opacity: 0; transition: opacity 0.5s;">
+            <h1>404</h1>
+            <p>OH! KAMU MENEMUKANNYA.</p>
+            <a href="/" class="btn-home" id="homeBtn">PULANG KE HOME</a>
+        </div>
+    </div>
+
+    <div class="credit-footer">
+        Switch Logic by <span>Mr.Rm19</span> — ramdan19id@gmail.com
+    </div>
+
+    <script>
+        const toggle = document.getElementById('lightToggle');
+        const body = document.getElementById('mainBody');
+        const content = document.getElementById('content');
+        const hint = document.getElementById('hintText');
+        const homeBtn = document.getElementById('homeBtn');
+
+        toggle.addEventListener('change', function() {
+            if (this.checked) {
+                body.classList.remove('dark');
+                body.classList.add('light');
+                content.style.opacity = "1";
+                hint.style.display = "none";
+                homeBtn.style.display = "inline-block";
+            } else {
+                body.classList.remove('light');
+                body.classList.add('dark');
+                content.style.opacity = "0";
+                hint.style.display = "block";
+                homeBtn.style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>

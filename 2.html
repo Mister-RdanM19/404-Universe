@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Black Hole | Mr.Rm19</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            background-color: #000;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        /* Black Hole Container */
+        .black-hole-wrapper {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .black-hole {
+            width: 150px;
+            height: 150px;
+            background: #000;
+            border-radius: 50%;
+            box-shadow: 
+                0 0 40px 10px #fff, 
+                0 0 100px 30px #f0f,
+                0 0 150px 50px #0ff;
+            animation: pulse 4s infinite alternate;
+            z-index: 2;
+        }
+
+        .debris-ring {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 2px dashed rgba(255, 255, 255, 0.2);
+            animation: spin 10s linear infinite;
+        }
+
+        /* Error Text */
+        .content {
+            text-align: center;
+            margin-top: 40px;
+            z-index: 10;
+        }
+
+        h1 {
+            font-size: 80px;
+            margin: 0;
+            letter-spacing: 10px;
+            filter: blur(1px);
+            animation: glitch 2s infinite;
+        }
+
+        p {
+            color: #aaa;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .btn-return {
+            margin-top: 20px;
+            padding: 10px 25px;
+            background: transparent;
+            border: 1px solid #fff;
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .btn-return:hover {
+            background: white;
+            color: black;
+            box-shadow: 0 0 20px #fff;
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 40px 10px #fff, 0 0 100px 20px #f0f; }
+            100% { transform: scale(1.1); box-shadow: 0 0 60px 20px #fff, 0 0 130px 40px #0ff; }
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
+        }
+
+        /* Credit Footer */
+        .credit-footer {
+            position: absolute;
+            bottom: 20px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.4);
+            letter-spacing: 1px;
+        }
+
+        .credit-footer span {
+            color: #0ff; /* Neon cyan to match black hole */
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="black-hole-wrapper">
+        <div class="debris-ring"></div>
+        <div class="black-hole"></div>
+    </div>
+
+    <div class="content">
+        <h1>404</h1>
+        <p>Halaman ini terhisap gravitasi.</p>
+        <a href="#" class="btn-return">Cari Jalan Keluar</a>
+    </div>
+
+    <div class="credit-footer">
+        Project by <span>Mr.Rm19</span> — ramdan19id@gmail.com
+    </div>
+
+</body>
+</html>

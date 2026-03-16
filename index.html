@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404-UNIVERSE -  Mr.Rm19</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Share+Tech+Mono&display=swap');
+
+        :root {
+            --cyan: #00f2fe;
+            --blue: #4facfe;
+            --bg: #000205; /* True Black for OLED */
+            --card-bg: rgba(16, 22, 29, 0.4); /* Glassmorphism start */
+            --glow: rgba(0, 242, 254, 0.3);
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        body {
+            margin: 0;
+            background-color: var(--bg);
+            color: white;
+            font-family: 'Share Tech Mono', monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Scanline Effect */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+            z-index: 100;
+            background-size: 100% 4px, 3px 100%;
+            pointer-events: none;
+            opacity: 0.6;
+        }
+
+        /* 3D Animated Background Canvas */
+        #matrix-canvas {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: -1;
+            opacity: 0.2;
+        }
+
+        /* Header Section */
+        header {
+            text-align: center;
+            padding: 80px 20px;
+            z-index: 10;
+        }
+
+        header h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            margin: 0;
+            background: linear-gradient(135deg, var(--cyan), #fff, var(--blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 12px;
+            animation: glowText 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glowText {
+            0% { text-shadow: 0 0 10px var(--glow); }
+            100% { text-shadow: 0 0 25px var(--cyan), 0 0 10px var(--blue); }
+        }
+
+        header p {
+            color: #8b949e;
+            margin-top: 15px;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        header .system-info {
+            color: var(--cyan);
+            font-size: 0.8rem;
+            margin-top: 5px;
+            opacity: 0.7;
+        }
+
+        /* Grid System */
+        .container {
+            max-width: 1400px;
+            width: 95%;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 40px 0;
+            z-index: 10;
+        }
+
+        /* Core 2.0 Card Design - Glassmorphism & Hover Effects */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid rgba(48, 54, 61, 0.5);
+            border-radius: 4px; /* Shaper, more techy corners */
+            padding: 25px;
+            text-decoration: none;
+            color: white;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            backdrop-filter: blur(5px);
+            opacity: 0; /* JS Will fade them in */
+            transform: scale(0.9);
+        }
+
+        /* Neon Corner Accents */
+        .card::before, .card::after {
+            content: "";
+            position: absolute;
+            width: 10px; height: 10px;
+            transition: var(--transition);
+            opacity: 0.3;
+        }
+        
+        .card::before { top: 0; left: 0; border-top: 2px solid var(--cyan); border-left: 2px solid var(--cyan); }
+        .card::after { bottom: 0; right: 0; border-bottom: 2px solid var(--blue); border-right: 2px solid var(--blue); }
+
+        /* Hover Animation */
+        .card:hover {
+            background: rgba(16, 22, 29, 0.8);
+            border-color: var(--cyan);
+            box-shadow: 0 10px 40px var(--glow);
+            transform: translateY(-8px) scale(1.02);
+        }
+
+        .card:hover::before, .card:hover::after { opacity: 1; width: 30px; height: 30px; }
+
+        .card .icon-placeholder {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--cyan);
+            text-shadow: 0 0 10px var(--cyan);
+        }
+
+        .card h3 {
+            font-family: 'Orbitron', sans-serif;
+            margin: 0;
+            font-size: 1.6rem;
+            letter-spacing: 2px;
+            color: #f0f0f0;
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            color: #8b949e;
+            margin-top: 10px;
+            letter-spacing: 1px;
+            flex-grow: 1;
+        }
+
+        .badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 0.65rem;
+            background: #238636;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 2px;
+            letter-spacing: 1px;
+        }
+
+        .open-btn {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: var(--cyan);
+            border-bottom: 1px dashed transparent;
+            transition: var(--transition);
+        }
+
+        .card:hover .open-btn {
+            border-color: var(--cyan);
+            transform: scale(1.05);
+        }
+
+        /* Footer V2 */
+        footer {
+            margin-top: auto;
+            padding: 60px 40px;
+            text-align: center;
+            color: rgba(72, 79, 88, 0.6);
+            border-top: 1px solid rgba(48, 54, 61, 0.3);
+            width: 100%;
+            z-index: 10;
+        }
+
+        footer span { color: var(--cyan); font-weight: bold; text-shadow: 0 0 5px var(--cyan); }
+
+    </style>
+</head>
+<body>
+
+    <canvas id="matrix-canvas"></canvas>
+
+    <header>
+        <h1>404-Universe</h1>
+        <div class="system-info"></div>
+        <p>Koleksi Master Template Halaman 404 Terkeren oleh <b>Mr.Rm19</b></p>
+    </header>
+
+    <div class="container" id="grid">
+        </div>
+
+    <footer>
+        &copy; 2026 <span>Mr.Rm19</span> https://github.com/Mister-RdanM19
+    </footer>
+
+    <script>
+        const themes = [
+            ["Space Orbit", "🌌"], ["Lost in Space", "📡"], ["Alien Abduction", "🛸"], ["Mars Rover", "🚜"], 
+            ["Pac-Man Style", "🕹️"], ["Cyberpunk Neon", "⚡"], ["Classic Arcade", "📟"], ["RPG Quest", "⚔️"],
+            ["Terminal CLI", "💻"], ["Broken Code", "🛠️"], ["Matrix Rain", "🍵"], ["BSOD", "🟦"],
+            ["Shadow Play", "👤"], ["Paper Plane", "✈️"], ["Dark Mode", "💡"], ["Floating Island", "☁️"],
+            ["CCTV Feed", "📹"], ["Missing Poster", "📢"], ["Deep Sea", "🤿"]
+        ];
+
+        const grid = document.getElementById('grid');
+
+        // Generate Cards
+        themes.forEach((theme, index) => {
+            const fileName = (index + 1) + ".html";
+            const themeName = theme[0];
+            const themeIcon = theme[1];
+            
+            const card = document.createElement('a');
+            card.href = fileName;
+            card.className = 'card';
+            
+            // Animation delay for cascade effect
+            card.style.animationDelay = (index * 0.05) + 's'; 
+
+            card.innerHTML = `
+                <div class="badge">SYSTEM V1.0</div>
+                <div class="icon-placeholder">${themeIcon}</div>
+                <h3>#${index + 1}</h3>
+                <p>${themeName}</p>
+                <div class="open-btn">ACCESS INTERFACE &rarr;</div>
+            `;
+            grid.appendChild(card);
+        });
+
+        // Cascading Fade-in Animation on Load
+        window.onload = function() {
+            const cards = document.querySelectorAll('.card');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'scale(1)';
+                }, index * 50); // Small delay between each card
+            });
+        };
+
+        // --- Optional: Minimal Matrix Code Rain for Background ---
+        const canvas = document.getElementById('matrix-canvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        const fontSize = 14;
+        const columns = canvas.width / fontSize;
+        const drops = [];
+
+        for (let i = 0; i < columns; i++) {
+            drops[i] = 1;
+        }
+
+        function drawMatrix() {
+            ctx.fillStyle = "rgba(0, 0, 0, 0.04)";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = "#0f0"; // Green Matrix Code
+            ctx.font = fontSize + "px monospace";
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = letters.charAt(Math.floor(Math.random() * letters.length));
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) { drops[i] = 0; }
+                drops[i]++;
+            }
+        }
+        setInterval(drawMatrix, 35);
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+    </script>
+</body>
+</html>

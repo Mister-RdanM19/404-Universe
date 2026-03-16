@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Lost in Space | Mr.Rm19</title>
+    <style>
+        /* Base Styling */
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+            overflow: hidden;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            text-align: center;
+            z-index: 10;
+        }
+
+        h1 {
+            font-size: clamp(80px, 15vw, 150px);
+            margin: 0;
+            font-weight: 900;
+            letter-spacing: 15px;
+            background: linear-gradient(to bottom, #fff, #444);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 20px rgba(255,255,255,0.3));
+        }
+
+        p.status {
+            font-size: 1.5rem;
+            color: #888;
+            margin-top: -10px;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+        }
+
+        .btn-home {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 30px;
+            border: 2px solid #fff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: 0.3s;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+        }
+
+        .btn-home:hover {
+            background: #fff;
+            color: #000;
+            box-shadow: 0 0 20px rgba(255,255,255,0.5);
+        }
+
+        /* Credit Footer */
+        .credit-footer {
+            position: absolute;
+            bottom: 20px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.4);
+            z-index: 10;
+            letter-spacing: 1px;
+        }
+
+        .credit-footer span {
+            color: #fff;
+            font-weight: bold;
+        }
+
+        /* Astronaut Animation */
+        .astronaut {
+            width: 120px;
+            position: absolute;
+            top: 15%;
+            right: 15%;
+            animation: float 8s ease-in-out infinite;
+            filter: drop-shadow(0 0 10px rgba(255,255,255,0.2));
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg) scale(1); }
+            50% { transform: translateY(-50px) rotate(10deg) scale(1.1); }
+            100% { transform: translateY(0px) rotate(0deg) scale(1); }
+        }
+
+        /* Star Background */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.5;
+            animation: twinkle var(--duration) infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="stars" id="starField"></div>
+
+    <div class="container">
+        <h1>404</h1>
+        <p class="status">LOST IN SPACE</p>
+        <p style="font-size: 1rem; color: #666;">Sepertinya kamu melayang terlalu jauh...</p>
+        <a href="#" class="btn-home">Kembali ke Bumi</a>
+    </div>
+
+    <div class="astronaut">
+        <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#ecf0f1" d="M401 211c-11-51-55-90-109-90h-72c-54 0-98 39-109 90-34 10-59 41-59 78v52c0 45 36 82 82 82h185c45 0 82-37 82-82v-52c0-37-25-68-59-78z"/>
+            <path fill="#2c3e50" d="M220 190h72c28 0 50 22 50 50v30c0 28-22 50-50 50h-72c-28 0-50-22-50-50v-30c0-28 22-50 50-50z"/>
+            <path fill="#bdc3c7" d="M111 289h290v52c0 45-36 82-82 82H193c-45 0-82-37-82-82v-52z"/>
+        </svg>
+    </div>
+
+    <div class="credit-footer">
+        Project by <span>Mr.Rm19</span> — ramdan19id@gmail.com
+    </div>
+
+    <script>
+        // Generate Stars
+        const starField = document.getElementById('starField');
+        const starCount = 100;
+
+        for (let i = 0; i < starCount; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            
+            const size = Math.random() * 2 + 1;
+            const x = Math.random() * 100;
+            const y = Math.random() * 100;
+            const duration = 2 + Math.random() * 4;
+
+            star.style.width = `${size}px`;
+            star.style.height = `${size}px`;
+            star.style.left = `${x}%`;
+            star.style.top = `${y}%`;
+            star.style.setProperty('--duration', `${duration}s`);
+            
+            starField.appendChild(star);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Classic Arcade | Mr.Rm19</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            background-color: #8bac0f; /* Original GB Green */
+            color: #0f380f; /* Darkest GB Green */
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* Gameboy Screen Container */
+        .gameboy-screen {
+            width: 300px;
+            height: 250px;
+            border: 10px solid #306230;
+            background-color: #9bbc0f;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 80px;
+            margin: 0;
+            font-weight: bold;
+            letter-spacing: -5px;
+            animation: bounce 0.5s infinite alternate;
+        }
+
+        .status {
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            border: 2px solid #0f380f;
+            padding: 5px 10px;
+            margin-top: 10px;
+        }
+
+        /* Gameboy Buttons Styling */
+        .controls {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .d-pad {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .btn-ab {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .circle-btn {
+            width: 40px;
+            height: 40px;
+            background: #306230;
+            border-radius: 50%;
+            color: #9bbc0f;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 3px 3px 0 #0f380f;
+        }
+
+        .circle-btn:active {
+            box-shadow: 1px 1px 0 #0f380f;
+            transform: translate(2px, 2px);
+        }
+
+        /* Animations */
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(-10px); }
+        }
+
+        /* Credit Footer */
+        .credit-footer {
+            position: absolute;
+            bottom: 20px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #306230;
+            font-weight: bold;
+        }
+
+        .credit-footer span {
+            color: #0f380f;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="gameboy-screen">
+        <h1>404</h1>
+        <div class="status">ERROR</div>
+        <p style="font-size: 0.7rem; margin-top: 15px;">LEVEL NOT FOUND</p>
+    </div>
+
+    <div class="controls">
+        <div class="d-pad">▲</div>
+        <div class="btn-ab">
+            <a href="/" class="circle-btn">B</a>
+            <a href="/" class="circle-btn">A</a>
+        </div>
+        <p style="font-size: 0.8rem; margin-top: 15px; font-weight: bold;">START / HOME</p>
+    </div>
+
+    <div class="credit-footer">
+        Project by <span>Mr.Rm19</span> — ramdan19id@gmail.com
+    </div>
+
+</body>
+</html>

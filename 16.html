@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Floating Islands | Mr.Rm19</title>
+    <style>
+        body, html { height: 100%; margin: 0; background: #e0f7fa; font-family: 'Segoe UI', sans-serif; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-direction: column; }
+        
+        .island-container { position: relative; animation: float 4s ease-in-out infinite; }
+        
+        .island { width: 250px; height: 100px; background: #8d6e63; border-radius: 50%; position: relative; box-shadow: inset 0 -10px 20px rgba(0,0,0,0.2); }
+        .island::before { content: ''; position: absolute; top: -40px; left: 25px; width: 200px; height: 60px; background: #66bb6a; border-radius: 50% 50% 0 0; }
+        
+        h1 { font-size: 80px; margin: 0; color: #2c3e50; position: absolute; top: -110px; width: 100%; text-align: center; text-shadow: 4px 4px 0 #fff; }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-30px); }
+        }
+
+        .btn-teleport { margin-top: 50px; padding: 12px 25px; background: #2c3e50; color: white; text-decoration: none; border-radius: 50px; font-weight: bold; z-index: 10; transition: 0.3s; }
+        .btn-teleport:hover { background: #66bb6a; transform: scale(1.1); }
+
+        .credit-footer { position: absolute; bottom: 20px; font-size: 0.8rem; color: #78909c; }
+        .credit-footer span { color: #2c3e50; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <div class="island-container">
+        <h1>404</h1>
+        <div class="island"></div>
+    </div>
+
+    <div style="text-align: center; margin-top: 40px; z-index: 10;">
+        <h2 style="color: #546e7a;">PULAU TERPENCIL</h2>
+        <p style="color: #90a4ae;">Halaman ini terputus dari server utama.</p>
+        <a href="/" class="btn-teleport">TERBANG KE HOME</a>
+    </div>
+
+    <div class="credit-footer">Project by <span>Mr.Rm19</span> — ramdan19id@gmail.com</div>
+
+</body>
+</html>

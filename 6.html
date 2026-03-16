@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Cyberpunk Neon | Mr.Rm19</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            background-color: #0d0115; /* Deep Purple Black */
+            color: #fff;
+            font-family: 'Courier New', Courier, monospace; /* Monospace for Tech feel */
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        /* Glitch Container */
+        .glitch-wrapper {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .glitch {
+            font-size: 150px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 15px;
+            color: #fff;
+            text-shadow: 0 0 10px #fff, 0 0 20px #f0f, 0 0 30px #f0f;
+            position: relative;
+            animation: glitchEffect 3s infinite;
+        }
+
+        .glitch::before, .glitch::after {
+            content: "404";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0d0115;
+            clip: rect(0, 900px, 0, 0);
+        }
+
+        .glitch::before {
+            left: 3px;
+            text-shadow: -2px 0 #0ff; /* Cyan shadow */
+            animation: glitchTop 1s infinite linear alternate-reverse;
+        }
+
+        .glitch::after {
+            left: -3px;
+            text-shadow: -2px 0 #f0f; /* Magenta shadow */
+            animation: glitchBottom 1.5s infinite linear alternate-reverse;
+        }
+
+        /* Content & Info */
+        .content {
+            text-align: center;
+            border-top: 2px solid #0ff;
+            border-bottom: 2px solid #f0f;
+            padding: 20px 40px;
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+        }
+
+        h2 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: #0ff; /* Cyan Neon */
+            letter-spacing: 5px;
+            text-transform: uppercase;
+        }
+
+        p {
+            color: #ccc;
+            letter-spacing: 2px;
+            margin-top: 10px;
+        }
+
+        .btn-bypass {
+            margin-top: 30px;
+            padding: 12px 30px;
+            background: transparent;
+            border: 2px solid #f0f; /* Magenta Neon */
+            color: #f0f;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .btn-bypass:hover {
+            background: #f0f;
+            color: #000;
+            box-shadow: 0 0 25px #f0f;
+        }
+
+        /* Animations */
+        @keyframes glitchEffect {
+            0% { text-shadow: 0 0 10px #fff, 0 0 20px #f0f; }
+            5% { text-shadow: 0 0 5px #fff, 0 0 10px #0ff; }
+            10% { text-shadow: 0 0 10px #fff, 0 0 20px #f0f; }
+            100% { text-shadow: 0 0 10px #fff, 0 0 20px #f0f; }
+        }
+
+        @keyframes glitchTop {
+            0% { clip: rect(10px, 9999px, 50px, 0); }
+            100% { clip: rect(80px, 9999px, 90px, 0); }
+        }
+
+        @keyframes glitchBottom {
+            0% { clip: rect(70px, 9999px, 120px, 0); }
+            100% { clip: rect(30px, 9999px, 60px, 0); }
+        }
+
+        /* Credit Footer */
+        .credit-footer {
+            position: absolute;
+            bottom: 20px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: rgba(0, 255, 255, 0.4);
+            letter-spacing: 1px;
+        }
+
+        .credit-footer span {
+            color: #0ff; /* Cyan to match theme */
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="glitch-wrapper">
+        <div class="glitch" data-text="404">404</div>
+    </div>
+
+    <div class="content">
+        <h2>SYSTEM ERROR: UNKNOWN VOID</h2>
+        <p>Halaman ini terinfeksi glitch atau tidak pernah ada.</p>
+        <a href="#" class="btn-bypass">BYPASS INTERFACE (HOME)</a>
+    </div>
+
+    <div class="credit-footer">
+        Project by <span>Mr.Rm19</span> — ramdan19id@gmail.com
+    </div>
+
+</body>
+</html>

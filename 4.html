@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Mars Rover | Mr.Rm19</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            background-color: #2c0e0e; /* Deep Mars Red */
+            color: #ff9966;
+            font-family: 'Segoe UI', sans-serif;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        /* Mars Landscape */
+        .landscape {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 200px;
+            background: #4a1c1c;
+            border-top: 5px solid #632626;
+            z-index: 1;
+        }
+
+        .mountain {
+            position: absolute;
+            bottom: 200px;
+            width: 0;
+            height: 0;
+            border-left: 150px solid transparent;
+            border-right: 150px solid transparent;
+            border-bottom: 100px solid #4a1c1c;
+            opacity: 0.5;
+        }
+
+        /* Rover Animation */
+        .rover {
+            font-size: 50px;
+            position: absolute;
+            bottom: 185px;
+            left: -100px;
+            z-index: 5;
+            animation: drive 12s linear infinite;
+        }
+
+        @keyframes drive {
+            0% { left: -100px; transform: scaleX(1); }
+            45% { left: 110%; transform: scaleX(1); }
+            50% { left: 110%; transform: scaleX(-1); }
+            95% { left: -100px; transform: scaleX(-1); }
+            100% { left: -100px; transform: scaleX(1); }
+        }
+
+        /* Content */
+        .content {
+            text-align: center;
+            z-index: 10;
+            background: rgba(44, 14, 14, 0.8);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid #ff9966;
+            box-shadow: 0 0 30px rgba(255, 153, 102, 0.2);
+        }
+
+        h1 {
+            font-size: 100px;
+            margin: 0;
+            font-weight: 800;
+            text-shadow: 5px 5px 0px #4a1c1c;
+        }
+
+        .status-box {
+            display: inline-block;
+            background: #ff9966;
+            color: #2c0e0e;
+            padding: 5px 15px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0.3; }
+        }
+
+        .btn-earth {
+            margin-top: 25px;
+            padding: 12px 25px;
+            border: 2px solid #ff9966;
+            color: #ff9966;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .btn-earth:hover {
+            background: #ff9966;
+            color: #2c0e0e;
+        }
+
+        /* Credit Footer */
+        .credit-footer {
+            position: absolute;
+            bottom: 15px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: rgba(255, 153, 102, 0.5);
+            z-index: 10;
+        }
+
+        .credit-footer span {
+            color: #ff9966;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="mountain" style="left: 10%;"></div>
+    <div class="mountain" style="left: 40%; transform: scale(1.5);"></div>
+    <div class="mountain" style="left: 70%;"></div>
+
+    <div class="rover">🚜</div>
+
+    <div class="content">
+        <div class="status-box">SIGNAL LOST</div>
+        <h1>404</h1>
+        <p>MISSION FAILED: PAGE NOT FOUND ON MARS</p>
+        <a href="#" class="btn-earth">KEMBALI KE BUMI</a>
+    </div>
+
+    <div class="landscape"></div>
+
+    <div class="credit-footer">
+        Project by <span>Mr.Rm19</span> — ramdan19id@gmail.com
+    </div>
+
+</body>
+</html>

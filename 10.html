@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Broken Code | Mr.Rm19</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            background-color: #1e1e1e; /* VS Code Dark Background */
+            color: #d4d4d4;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .editor-container {
+            width: 90%;
+            max-width: 650px;
+            background: #252526;
+            border: 1px solid #444;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .editor-header {
+            background: #323233;
+            padding: 10px 15px;
+            font-size: 0.8rem;
+            color: #969696;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #444;
+        }
+
+        .editor-body {
+            padding: 20px;
+            counter-reset: line;
+            position: relative;
+        }
+
+        .line {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .line::before {
+            counter-increment: line;
+            content: counter(line);
+            display: inline-block;
+            width: 25px;
+            margin-right: 15px;
+            color: #858585;
+            text-align: right;
+        }
+
+        /* Syntax Highlighting Colors */
+        .keyword { color: #569cd6; } /* blue */
+        .string { color: #ce9178; }  /* orange/red */
+        .function { color: #dcdcaa; } /* yellow */
+        .comment { color: #6a9955; font-style: italic; }
+        .error-underline {
+            text-decoration: underline wavy #f44747;
+            font-weight: bold;
+        }
+
+        .error-popup {
+            background: #f44747;
+            color: white;
+            padding: 5px 10px;
+            font-size: 0.8rem;
+            margin-left: 40px;
+            margin-top: 5px;
+            display: inline-block;
+            border-radius: 3px;
+        }
+
+        .btn-fix {
+            margin-top: 30px;
+            padding: 10px 20px;
+            background: #0e639c; /* VS Code Blue */
+            color: white;
+            text-decoration: none;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+
+        .btn-fix:hover {
+            background: #1177bb;
+        }
+
+        /* Credit Footer */
+        .credit-footer {
+            margin-top: 40px;
+            font-size: 0.85rem;
+            color: #555;
+        }
+
+        .credit-footer span {
+            color: #569cd6;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="editor-container">
+        <div class="editor-header">
+            <span>page_finder.py — ALL-IN-ONE Project</span>
+            <span>UTF-8</span>
+        </div>
+        <div class="editor-body">
+            <span class="line"><span class="keyword">import</span> system_core</span>
+            <span class="line"><span class="comment"># Mencari lokasi halaman yang diminta</span></span>
+            <span class="line"><span class="keyword">def</span> <span class="function">load_page</span>(url):</span>
+            <span class="line">&nbsp;&nbsp;&nbsp;&nbsp;page = system_core.<span class="function">find</span>(url)</span>
+            <span class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> <span class="keyword">not</span> page:</span>
+            <span class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">raise</span> <span class="error-underline">Error404</span>(<span class="string">"Halaman Hilang!"</span>)</span>
+            <div class="error-popup">Uncaught Exception: PageNotFound at line 6</div>
+            <span class="line"></span>
+            <span class="line"><span class="function">print</span>(<span class="string">"Program dihentikan secara paksa..."</span>)</span>
+        </div>
+    </div>
+
+    <a href="/" class="btn-fix">RE-COMPILE (HOME)</a>
+
+    <div class="credit-footer">
+        Coded by <span>Mr.Rm19</span> — ramdan19id@gmail.com
+    </div>
+
+</body>
+</html>
